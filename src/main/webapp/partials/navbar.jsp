@@ -12,25 +12,10 @@
     <title></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
-    <style>
-
-        /*.navbar-custom {*/
-        /*color: #FFFFFF;*/
-        /*background-color: #000000;*/
-        /*}*/
-
-        /*.nav-color {*/
-        /*color: green;*/
-        /*background-color: black;*/
-        /*padding: 10px;*/
-        /*}*/
-
-    </style>
-
 </head>
 
-<body>
 
+<body>
 <nav class="navbar-custom navbar navbar-expand-lg navbar-dark" style="background-color: #000000;">
     <a class="navbar-brand" href="#" style="font-family: 'Permanent Marker', cursive; color: #ff5735;">AdLister</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
