@@ -30,7 +30,7 @@
     <title>Login</title>
 </head>
 <body>
-
+<jsp:include page="partials/signin-navbar.jsp" />
 <h1>Welcome, please log in to your account!</h1>
 
 <form action="login.jsp" method="post">
