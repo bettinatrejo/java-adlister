@@ -16,7 +16,7 @@ public class ListAdsDao implements Ads {
         ads.add(new Ad(
             1,
             1,
-            "playstation for sale",
+            "Playstation For Sale",
             "This is a slightly used playstation"
         ));
         ads.add(new Ad(
@@ -34,7 +34,7 @@ public class ListAdsDao implements Ads {
         ads.add(new Ad(
             4,
             2,
-            "JavaScript Developer needed",
+            "JavaScript Developer Needed",
             "Must have strong Java skills"
         ));
         return ads;
