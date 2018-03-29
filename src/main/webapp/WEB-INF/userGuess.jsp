@@ -17,5 +17,7 @@
 <h1>You guessed: ${userGuess}</h1>
 <h1>${message}</h1>
 
+<a href="/guess">Guess Again</a>
+
 </body>
 </html>
