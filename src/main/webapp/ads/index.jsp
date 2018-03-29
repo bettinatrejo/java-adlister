@@ -21,8 +21,25 @@
 
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
-            <h2>{$ad.title}</h2>
-            <p>${ad.description}</p>
+            <table class="table table-striped" style="border: solid 1px black">
+                <thead>
+                    <tr>
+                        <th scope="col"><p style="color: red;">${ad.title}</p></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">${ad.description}</td>
+                        <td scope="row"><a href="ads/show.jsp?=${ad.id}">More details</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+
+            <%--<h2>${ad.title}</h2>--%>
+            <%--<p>${ad.description}</p>--%>
         </div>
     </c:forEach>
 </div>
