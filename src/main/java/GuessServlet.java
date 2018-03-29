@@ -7,22 +7,27 @@ import java.io.IOException;
 
 @WebServlet(name = "GuessServlet", urlPatterns = "/guess")
 public class GuessServlet extends HttpServlet {
+
+    private int computerGuess = 8;
+
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         Integer userGuess = Integer.parseInt(request.getParameter("userGuess"));
-        request.setAttribute("userGuess", userGuess);
-        String message = request.getParameter("message");
-        request.setAttribute("message", message);
 
-//        int randResponse = (int) Math.round(Math.random() * 99 + 1);
-        int randResponse = 4;
+        String message = null;
 
-        if(userGuess == randResponse) {
+        if(userGuess == computerGuess) {
             message = "You won!";
-        } else if (userGuess < randResponse) {
+        } else if (userGuess < computerGuess) {
             message = "Too Low";
-        } else if (userGuess > randResponse){
+        } else if (userGuess > computerGuess){
             message = "Too High";
         }
+
+
+        request.setAttribute("userGuess", userGuess);
+        request.setAttribute("message", message);
 
         request.getRequestDispatcher("WEB-INF/userGuess.jsp").forward(request, response);
     }
