@@ -14,7 +14,7 @@ CREATE TABLE users (
 describe USERS;
 
 
-Select * from users;
+Select * from ads;
 
 
 CREATE TABLE ads (
@@ -27,3 +27,7 @@ CREATE TABLE ads (
 );
 
 describe ads;
+
+INSERT INTO users (username, email, password) VALUES ('heythere', 'green2bean@gmail.com', 'heythere');
+
+INSERT INTO ads(user_id,title, description) VALUES (1, 'test', 'testing');
