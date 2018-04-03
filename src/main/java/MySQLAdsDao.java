@@ -1,52 +1,64 @@
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 import com.mysql.cj.jdbc.Driver;
 
 
 public class MySQLAdsDao implements Ads{
 
-    private static Connection connection = null;
+    private Connection connection = null;
 
 
-    public MySQLAdsDao() throws SQLException{
-        Statement stmt = connection.createStatement();
-
-        ResultSet rs = stmt.executeQuery("SELECT * FROM users ");
-
-        while(rs.next()) {
-            System.out.println();
-        }
-    }
-
-    @Override
-    public List<Ad> all() {
-        return null;
-    }
-
-    @Override
-    public Long insert(Ad ad) {
-        return null;
-    }
-
-
-    public static void main(String[] args) {
-        try {
+    public MySQLAdsDao(Config config) throws SQLException{
         DriverManager.registerDriver(new Driver());
 
-        Config config = new Config();
 
         connection = DriverManager.getConnection (
                 config.getUrl(),
                 config.getUsername(),
                 config.getPassword()
                 );
+    }
 
 
-        } catch (SQLException e) {
+    public List<Ad> all() throws SQLException {
+        List<Ad> ads = new ArrayList<>();
+
+        Statement stmt = connection.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * FROM ads");
+
+        while(rs.next()) {
+            Ad ad = new Ad();
+            ad.setId(rs.getLong("id"));
+            ad.setDescription(rs.getString("description"));
+            ad.setTitle(rs.getString("title"));
+            ad.setUserId(rs.getLong("user_id"));
+            ads.add(ad);
+        }
+        return ads;
+    }
+
+
+    public Long insert(Ad ad) {
+        long id =(long) 0;
+        String query =
+                "INSERT INTO ads(title, description, user_id)  VALUES ('" + ad.getTitle() +"', '" + ad.getDescription() + "', " + ad.getUserId() + ")";
+        try {
+        Statement stmt = connection.createStatement();
+        stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
+        ResultSet rs = stmt.getGeneratedKeys();
+
+         if(rs.next()){
+             rs.getLong(1);
+         }
+
+        } catch(SQLException e) {
             e.printStackTrace();
         }
 
+        return id;
     }
+
 
 
 }
