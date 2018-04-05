@@ -3,6 +3,12 @@ USE adlister_db;
 DROP TABLE IF EXISTS ads;
 DROP TABLE IF EXISTS users;
 
+SELECT * FROM users;
+
+
+
+INSERT INTO users (username, email, password) VALUES ('username', 'user@gmail.com', 'password');
+
 CREATE TABLE users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     username VARCHAR(240) NOT NULL,
